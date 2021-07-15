@@ -2,8 +2,6 @@ import React from 'react';
 import { Typography, ButtonBase, Paper } from '@material-ui/core';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { makeStyles } from '@material-ui/core/styles';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../actions/cartAction';
 
 const useStyles = makeStyles((theme) => ({
   productContainer: {
@@ -26,14 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ProductItem({ productDetails }) {
-  const dispatch = useDispatch()
   const classes = useStyles()
-
-
-  const handleAddCart = () => {
-    dispatch(addToCart({ ...productDetails, qty: 1 }))
-  }
-  // debugger;
 
   return (
     <Paper elevation={6}
@@ -56,7 +47,6 @@ export default function ProductItem({ productDetails }) {
         <Typography variant="h5">{productDetails.price}</Typography>
         <ButtonBase
           className={classes.addToCart}
-          onClick={handleAddCart}
         >
           <ShoppingBasketIcon />
         </ButtonBase>

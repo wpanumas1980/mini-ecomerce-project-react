@@ -3,7 +3,6 @@ import {
   Grid,
   Paper,
   Button,
-  TextField
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,37 +17,27 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function CartItem({item}) {
+export default function CartItem() {
   const classes = useStyles();
   return (
     <Paper elevation={1} className={classes.itemContainer}>
-      <Grid container justify="space-between">
+      <Grid container justify="space-between" style={{padding:'10px'}}>
         <Grid item>
           <Grid container>
             <Grid item className={classes.itemDetails}>
               <img
                 width="150px"
-                src={item.imgUrl}
+                src={"https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"}
                 alt="foodImage"
               />
             </Grid>
             <Grid item className={classes.itemDetails}>
-              <h5>{item.name}</h5>
-              <TextField
-                id="outlined-number"
-                label="Number"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                variant="outlined"
-              />
-
+              <h5>Shushi</h5>
             </Grid>
           </Grid>
         </Grid>
         <Grid item >
-          <h2>{item.price}</h2>
+          <h2>250</h2>
         </Grid>
       </Grid>
       <Grid container justify="flex-end">
@@ -56,7 +45,6 @@ export default function CartItem({item}) {
           <Button
             size="large"
             startIcon={<DeleteIcon />}
-            style={{ marginRight: 0 }}
           />
         </Grid>
       </Grid>

@@ -14,7 +14,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -85,7 +84,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Navbar() {
-  const cart = useSelector(state => state.cart);
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -199,7 +197,7 @@ export default function Navbar() {
               className={classes.baseMenu}
             >
               <IconButton aria-label="Cart" color="inherit">
-                <Badge badgeContent={cart.reduce((sum, item) => sum + item.qty, 0)} color="secondary">
+                <Badge badgeContent={5} color="secondary">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
